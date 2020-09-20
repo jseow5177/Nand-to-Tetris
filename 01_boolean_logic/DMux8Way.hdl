@@ -1,0 +1,27 @@
+// 8-way demultiplexer implementation
+
+/**
+ * | 0 | 0 | 0 | a |
+ * | 0 | 0 | 1 | b |
+ * | 0 | 1 | 0 | c |
+ * | 0 | 1 | 1 | d |
+ * | 1 | 0 | 0 | e |
+ * | 1 | 0 | 1 | f |
+ * | 1 | 1 | 0 | g |
+ * | 1 | 1 | 1 | h |
+ * Idea: Split three way from left to right
+ */
+
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    DMux (in=in, sel=sel[2], a=top0, b=bottom0);
+    DMux (in=top0, sel=sel[1], a=top1, b=bottom1);
+    DMux (in=bottom0, sel=sel[1], a=top2, b=bottom2);
+    DMux (in=top1, sel=sel[0], a=a, b=b);
+    DMux (in=bottom1, sel=sel[0], a=c, b=d);
+    DMux (in=top2, sel=sel[0], a=e, b=f);
+    DMux (in=bottom2, sel=sel[0], a=g, b=h);
+}
