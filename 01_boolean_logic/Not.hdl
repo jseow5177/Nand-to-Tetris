@@ -1,3 +1,9 @@
+// Not gate implementation
+
+/**
+ * out = not in
+ */
+
 CHIP Not {
     IN in;
     OUT out;
