@@ -1,0 +1,21 @@
+// 4-way demultiplexer implementation
+// Channels the input to one of the four outputs
+
+/**
+ * | 0 | 0 | a |
+ * | 0 | 1 | b |
+ * | 1 | 0 | c |
+ * | 1 | 1 | d |
+ * First, use DMux to decide if the output goes to a/b or c/d.
+ * Then, split a/b to a and b and split c/d to c and d.
+ */
+
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    DMux (in=in, sel=sel[1], a=top, b=bottom);
+    DMux (in=top, sel=sel[0], a=a, b=b);
+    DMux (in=bottom, sel=sel[0], a=c, b=d);
+}
