@@ -1,0 +1,17 @@
+// Multiplexor implementation
+
+/**
+ * out = a if (sel == 0) else b
+ * Idea: When sel is 0, block b and enable a (via Not gate). Else, block a and enable b.
+ */
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=notSel);
+    And(a=a, b=notSel, out=aOut);
+    And(a=b, b=sel, out=bOut);
+    Or(a=aOut, b=bOut, out=out);
+}
