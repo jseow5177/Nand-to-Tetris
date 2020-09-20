@@ -1,1 +1,17 @@
-ÿþ
+// Xor gate implementation
+
+/**
+* out = 0 if (a == b) else 1
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not (in=a, out=nota);
+    Not (in=b, out=notb);
+    Nand (a=nota, b=notb, out=nandNotOut);
+    Nand (a=a, b=b, out=nandOut);
+    And(a=nandNotOut, b=nandOut, out=out);
+}
