@@ -9,9 +9,9 @@ In this project, a minimal ALU named as the Hack ALU is used. It operates on two
 
 Below shows the specification and truth table of our Hack ALU with the 18 functions:
 
-![alu-specs](./img_assets/alu-specs.png)
+![alu-specs](./img_assets/alu-specs.PNG)
 
-![alu-table](./img_assets/alu-table.png)
+![alu-table](./img_assets/alu-table.PNG)
 
 Note that the control bits are applied on the inputs in the sequence of zx, nx, zy, ny, f and no. The additional two outputs, zr and ng will be used in the later units of this project.
 
@@ -21,12 +21,12 @@ Adders are chips used to perform addition on numbers. We can also compute negati
 ### 1. Half Adder
 Designed to add two bits.
 
-![half-adder](./img_assets/half-adder.png)
+![half-adder](./img_assets/half-adder.PNG)
 
 ### 2. Full Adder
 Designed to add three bits.
 
-![full-adder](./img_assets/full-adder.png)
+![full-adder](./img_assets/full-adder.PNG)
 
 ### 3. Add16
 A 16-bit adder that handles the addition of two 16-bit binary numbers. It is constructed using the Half Adder and Full Adder designed above. Note that the adder in this project does not detect or handle overflow.
@@ -35,7 +35,7 @@ The 16-bit adder used here is a ripple-carry adder. It is same as the pencil-and
 
 The ripple-carry adder is inefficient when the number of bits, n is large as the signal needs to traverse through long distance from right to left. To solve this problem, there is another type of adder known as carry-lookahead adder.
 
-![add-16](./img_assets/add-16.png)
+![add-16](./img_assets/add-16.PNG)
 
 ### 4. Inc16
 A special-purpose adder that adds a constant 1 to a given number.
